@@ -1,12 +1,9 @@
 <div align="center">
 
-<img src="[https://africa.dlnlp.ai/simba/images/VoC_logo.png](https://africa.dlnlp.ai/simba/images/VoC_logo.png)" width="400" alt="VoC Logo">
+<img src="https://africa.dlnlp.ai/simba/images/VoC_logo.png" alt="VoC Logo">
 
-# Simba: Voice of a Continent 🦁
-### Mapping Africa's Speech Technology Frontier | EMNLP 2025
-
-[![Paper](https://img.shields.io/badge/-Read%20Paper-blue?style=for-the-badge&logo=arxiv&logoColor=white)](https://aclanthology.org/2025.emnlp-main.559/)
-[![Project Page](https://img.shields.io/badge/-Project%20Site-green?style=for-the-badge&logo=googlechrome&logoColor=white)](https://africa.dlnlp.ai/simba/)
+[![EMNLP 2025 Paper](https://img.shields.io/badge/-Read%20Paper-blue?style=for-the-badge&logo=arxiv&logoColor=white)](https://aclanthology.org/2025.emnlp-main.559/)
+[![Project website](https://img.shields.io/badge/-Project%20Site-green?style=for-the-badge&logo=googlechrome&logoColor=white)](https://africa.dlnlp.ai/simba/)
 [![Hugging Face](https://img.shields.io/badge/-Model%20Weights-orange?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/collections/UBC-NLP/simba-asr)
 [![Demo](https://img.shields.io/badge/-Live%20Demo-red?style=for-the-badge&logo=youtube&logoColor=white)](#demo)
 
