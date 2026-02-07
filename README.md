@@ -114,19 +114,35 @@ Get started with Simba models in minutes using our interactive Colab notebook: [
 
 
 
-## 📈 Performance Comparison
-<div align="center">
-<img src="https://raw.githubusercontent.com/YourUsername/Simba/main/assets/performance_chart.png" width="800" alt="Simba vs Whisper Comparison">
-<p><i>Simba outperforms generic models by significant margins across African linguistic families.</i></p>
-</div>
+## Citation
 
----
+If you use the Simba models or SimbaBench  benchmark for your scientific publication, or if you find the resources in this website useful, please cite our paper.
 
-## 🛠️ Installation & Usage
+```bibtex
 
-```bash
-# Clone the repository
-git clone [https://github.com/UBC-NLP/simba.git](https://github.com/UBC-NLP/simba.git)
+@inproceedings{elmadany-etal-2025-voice,
+    title = "Voice of a Continent: Mapping {A}frica{'}s Speech Technology Frontier",
+    author = "Elmadany, AbdelRahim A.  and
+      Kwon, Sang Yun  and
+      Toyin, Hawau Olamide  and
+      Alcoba Inciarte, Alcides  and
+      Aldarmaki, Hanan  and
+      Abdul-Mageed, Muhammad",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.emnlp-main.559/",
+    doi = "10.18653/v1/2025.emnlp-main.559",
+    pages = "11039--11061",
+    ISBN = "979-8-89176-332-6",
+}
 
-# Install dependencies
-pip install -r requirements.txt
+```
+
+
