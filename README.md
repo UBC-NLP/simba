@@ -47,20 +47,19 @@ The **Simba** family consists of state-of-the-art models fine-tuned using SimbaB
 
 | **ASR Models**   | **Architecture**  | **🤗 Hugging Face Model Card** | **Status** |
 |---------|:------------------:| :------------------:| :------------------:|    
-| 🔥**Simba-S**🔥|    SeamlessM4T-v2  |  🤗 [https://huggingface.co/UBC-NLP-C/Simba-S](https://huggingface.co/UBC-NLP-C/Simba-S) | ✅ Released |
-| 🔥**Simba-W**🔥|    Whisper         |   | 🛠️ In Progress | 
-| 🔥**Simba-X**🔥|    Wav2Vec2        |   | 🛠️ In Progress |   
-| 🔥**Simba-M**🔥|    MMS             |  🤗 [https://huggingface.co/UBC-NLP-C/Simba-M](https://huggingface.co/UBC-NLP-C/Simba-M) | ✅ Released |   
-| 🔥**Simba-H**🔥|    HuBERT          |  | 🛠️ In Progress |   
+| 🔥**Simba-S**🔥|    SeamlessM4T-v2  |  🤗 [https://huggingface.co/UBC-NLP/Simba-S](https://huggingface.co/UBC-NLP/Simba-S) | ✅ Released |
+| 🔥**Simba-W**🔥|    Whisper         |  🤗 [https://huggingface.co/UBC-NLP/Simba-W](https://huggingface.co/UBC-NLP/Simba-W) | ✅ Released | 
+| 🔥**Simba-X**🔥|    Wav2Vec2        |  🤗 [https://huggingface.co/UBC-NLP/Simba-X](https://huggingface.co/UBC-NLP/Simba-X) | ✅ Released |   
+| 🔥**Simba-M**🔥|    MMS             |  🤗 [https://huggingface.co/UBC-NLP/Simba-M](https://huggingface.co/UBC-NLP/Simba-M) | ✅ Released |   
+| 🔥**Simba-H**🔥|    HuBERT          |  🤗 [https://huggingface.co/UBC-NLP/Simba-H](https://huggingface.co/UBC-NLP/Simba-H) | ✅ Released |   
 
-* **Simba-S** (based on SeamlessM4T-v2-MT) emerged as the best-performing ASR model overall.
+* **Simba-S** emerged as the best-performing ASR model overall.
 
 
 **🧩 Usage Example**
 
 You can easily run inference using the Hugging Face `transformers` library.
 
-**Use the standard pipeline** :
 ```python
 from transformers import pipeline
 
@@ -85,7 +84,7 @@ result = asr_pipeline({
 print(result["text"])
 
 ```
-Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_NOTEBOOK_LINK_HERE)
+Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]([YOUR_COLAB_NOTEBOOK_LINK_HERE](https://github.com/UBC-NLP/simba/edit/main/simba_models.ipynb)
 
 
 ### 🔊 Simba-TTS (Text-to-Speech)
