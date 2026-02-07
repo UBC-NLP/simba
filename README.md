@@ -84,7 +84,7 @@ result = asr_pipeline({
 print(result["text"])
 
 ```
-Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/UBC-NLP/simba/edit/main/simba_models.ipynb)
+Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/UBC-NLP/simba/main/simba_models.ipynb)
 
 
 ### 🔊 Simba-TTS (Text-to-Speech)
