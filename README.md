@@ -58,22 +58,34 @@ The **Simba** family consists of state-of-the-art models fine-tuned using SimbaB
 
 **🧩 Usage Example**
 
-You can easily run inference using the Hugging Face `transformers` library. Below is an example of how to use **Simba-ASR** (using the SeamlessM4T base) for transcription.
+You can easily run inference using the Hugging Face `transformers` library.
 
+**Use the standard pipeline** :
 ```python
 from transformers import pipeline
 
-# 1. Initialize the ASR pipeline with a Simba model
-# Replace 'Simba-S' with the specific model path from UBC-NLP HF
-pipe = pipeline("automatic-speech-recognition", model="UBC-NLP/Simba-S")
+# Load Simba-S for ASR
+asr_pipeline = pipeline(
+    "automatic-speech-recognition",
+    model="UBC-NLP/Simba-S" #Simba mdoels `UBC-NLP/Simba-S`, `UBC-NLP/Simba-W`, `UBC-NLP/Simba-X`, `UBC-NLP/Simba-H`, `UBC-NLP/Simba-M`
+)
 
-# 2. Transcribe an audio file (e.g., a Yoruba or Swahili clip)
-result = pipe("path_to_audio_file.wav")
+asr_pipeline.model.load_adapter("multilingual_african")  # Only for  `UBC-NLP/Simba-M`
 
-print(f"Transcription: {result['text']}")
+# Transcribe audio from file
+result = asr_pipeline("https://africa.dlnlp.ai/simba/audio/afr_Lwazi_afr_test_idx3889.wav")
+print(result["text"])
+
+
+# Transcribe audio from audio array
+result = asr_pipeline({
+    "array": audio_array,
+    "sampling_rate": 16_000
+})
+print(result["text"])
 
 ```
-
+Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_NOTEBOOK_LINK_HERE)
 
 
 ### 🔊 Simba-TTS (Text-to-Speech)
