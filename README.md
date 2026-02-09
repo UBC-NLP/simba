@@ -45,13 +45,13 @@ The **Simba** family consists of state-of-the-art models fine-tuned using SimbaB
       
 🌐 Explore the Frontier
 
-| **ASR Models**   | **Architecture**  | **🤗 Hugging Face Model Card** | **Status** |
-|---------|:------------------:| :------------------:| :------------------:|    
-| 🔥**Simba-S**🔥|    SeamlessM4T-v2  |  🤗 [https://huggingface.co/UBC-NLP/Simba-S](https://huggingface.co/UBC-NLP/Simba-S) | ✅ Released |
-| 🔥**Simba-W**🔥|    Whisper         |  🤗 [https://huggingface.co/UBC-NLP/Simba-W](https://huggingface.co/UBC-NLP/Simba-W) | ✅ Released | 
-| 🔥**Simba-X**🔥|    Wav2Vec2        |  🤗 [https://huggingface.co/UBC-NLP/Simba-X](https://huggingface.co/UBC-NLP/Simba-X) | ✅ Released |   
-| 🔥**Simba-M**🔥|    MMS             |  🤗 [https://huggingface.co/UBC-NLP/Simba-M](https://huggingface.co/UBC-NLP/Simba-M) | ✅ Released |   
-| 🔥**Simba-H**🔥|    HuBERT          |  🤗 [https://huggingface.co/UBC-NLP/Simba-H](https://huggingface.co/UBC-NLP/Simba-H) | ✅ Released |   
+| **ASR Models**   | **Architecture**  | **#Parameters** | **🤗 Hugging Face Model Card** | **Status** |
+|---------|:------------------:| :------------------:| :------------------:|:------------------:|    
+| 🔥**Simba-S**🔥|    SeamlessM4T-v2  |  2.3B | 🤗 [https://huggingface.co/UBC-NLP/Simba-S](https://huggingface.co/UBC-NLP/Simba-S) | ✅ Released |
+| 🔥**Simba-W**🔥|    Whisper         |  1.5B | 🤗 [https://huggingface.co/UBC-NLP/Simba-W](https://huggingface.co/UBC-NLP/Simba-W) | ✅ Released | 
+| 🔥**Simba-X**🔥|    Wav2Vec2        |  1B | 🤗 [https://huggingface.co/UBC-NLP/Simba-X](https://huggingface.co/UBC-NLP/Simba-X) | ✅ Released |   
+| 🔥**Simba-M**🔥|    MMS             |  1B | 🤗 [https://huggingface.co/UBC-NLP/Simba-M](https://huggingface.co/UBC-NLP/Simba-M) | ✅ Released |   
+| 🔥**Simba-H**🔥|    HuBERT          |  94M | 🤗 [https://huggingface.co/UBC-NLP/Simba-H](https://huggingface.co/UBC-NLP/Simba-H) | ✅ Released |   
 
 * **Simba-S** emerged as the best-performing ASR model overall.
 
@@ -69,7 +69,9 @@ asr_pipeline = pipeline(
     model="UBC-NLP/Simba-S" #Simba mdoels `UBC-NLP/Simba-S`, `UBC-NLP/Simba-W`, `UBC-NLP/Simba-X`, `UBC-NLP/Simba-H`, `UBC-NLP/Simba-M`
 )
 
+##### Load the multilingual African adapter (Only for  `UBC-NLP/Simba-M`)
 asr_pipeline.model.load_adapter("multilingual_african")  # Only for  `UBC-NLP/Simba-M`
+###########################
 
 # Transcribe audio from file
 result = asr_pipeline("https://africa.dlnlp.ai/simba/audio/afr_Lwazi_afr_test_idx3889.wav")
@@ -83,6 +85,35 @@ result = asr_pipeline({
 })
 print(result["text"])
 
+```
+
+#### Example Outputs
+
+Using the same audio file with different Simba models:
+
+```python
+# Simba-S
+{'text': 'watter verontwaardiging sou daar, in ons binneste gewees het.'}
+```
+
+```python
+# Simba-W
+{'text': 'watter veronwaardigingsel daar, in ons binneste gewees het.'}
+```
+
+```python
+# Simba-X
+{'text': 'fator fr on ar taamsodr is'}
+```
+
+```python
+# Simba-M
+{'text': 'watter veronwaardiging sodaar in ons binniste gewees het'}
+```
+
+```python
+# Simba-H
+{'text': 'watter vironwaardiging so daar in ons binneste geweeshet'}
 ```
 Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/UBC-NLP/simba/main/simba_models.ipynb)
 
