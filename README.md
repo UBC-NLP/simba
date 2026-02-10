@@ -114,7 +114,7 @@ Using the same audio file with different Simba models:
 # Simba-H
 {'text': 'watter vironwaardiging so daar in ons binneste geweeshet'}
 ```
-Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/UBC-NLP/simba/main/simba_models.ipynb)
+Get started with Simba models in minutes using our interactive Colab notebook: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/UBC-NLP/simba/blob/main/simba_models.ipynb)
 
 
 ### 🔊 Simba-TTS (Text-to-Speech)
