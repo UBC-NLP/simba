@@ -124,14 +124,47 @@ Get started with Simba models in minutes using our interactive Colab notebook: [
 
 | **TTS Model** | **Architecture** | **Hugging Face Card** | **Status** |
 | :--- | :--- | :---: | :---: |
-| **Simba-TTS** 🔊 | MMS-TTS |  | 🛠️ In Progress  |
-| **Simba-TTS** 🔊 | MMS-TTS |  | 🛠️ In Progress  |
-| **Simba-TTS** 🔊 | MMS-TTS |  | 🛠️ In Progress  |
-| **Simba-TTS** 🔊 | MMS-TTS |  | 🛠️ In Progress  |
-| **Simba-TTS** 🔊 | MMS-TTS | | 🛠️ In Progress  |
-| **Simba-TTS** 🔊 | MMS-TTS |  | 🛠️ In Progress  |
-| **Simba-TTS** 🔊 | MMS-TTS |  | 🛠️ In Progress  |
+| **Simba-TTS-afr** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-afr](https://huggingface.co/UBC-NLP/Simba-TTS-afr) | ✅ Released |
+| **Simba-TTS-twi-asanti** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/imba-TTS-twi-asanti](https://huggingface.co/UBC-NLP/imba-TTS-twi-asanti) | ✅ Released |
+| **Simba-TTS-twi-akuapem** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-twi-akuapem](https://huggingface.co/UBC-NLP/Simba-TTS-twi-akuapem) | ✅ Released |
+| **Simba-TTS-lin** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-lin](https://huggingface.co/UBC-NLP/Simba-TTS-lin) | ✅ Released |
+| **Simba-TTS-sot** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-sot](https://huggingface.co/UBC-NLP/Simba-TTS-sot) | ✅ Released |
+| **Simba-TTS-tsn** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-tsn](https://huggingface.co/UBC-NLP/Simba-TTS-tsn) | ✅ Released |
+| **Simba-TTS-xho** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-xho](https://huggingface.co/UBC-NLP/Simba-TTS-xho) | ✅ Released |
 
+**🧩 Usage Example**
+
+You can easily run inference using the Hugging Face `transformers` library.
+
+```python
+from transformers import VitsModel, AutoTokenizer
+import torch
+lang="afr"
+model_name=f"UBC-NLP-C/mms-tts-{lang}"
+model = VitsModel.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+text = "Ons noem hierdie deeltjies sub-atomiese deeltjies" #example of Afrikaans (afr) language 
+inputs = tokenizer(text, return_tensors="pt")
+
+with torch.no_grad():
+    output = model(**inputs).waveform
+
+```
+The resulting waveform can be saved as a .wav file:
+```python
+scipy.io.wavfile.write("outputfile.wav", rate=model.config.sampling_rate, data=output.float().numpy())
+
+```
+Or displayed in a Jupyter Notebook / Google Colab:
+
+```python
+from IPython.display import Audio
+
+Audio(output.numpy(), rate=model.config.sampling_rate)
+
+
+```
 
 ### 🔍 Simba-SLID (Spoken Language Identification)
 * **🎯 Task:** `Spoken Language Identification` — Intelligent input routing.
