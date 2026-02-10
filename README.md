@@ -125,7 +125,7 @@ Get started with Simba models in minutes using our interactive Colab notebook: [
 | **TTS Model** | **Architecture** | **Hugging Face Card** | **Status** |
 | :--- | :--- | :---: | :---: |
 | **Simba-TTS-afr** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-afr](https://huggingface.co/UBC-NLP/Simba-TTS-afr) | ✅ Released |
-| **Simba-TTS-twi-asanti** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/imba-TTS-twi-asanti](https://huggingface.co/UBC-NLP/imba-TTS-twi-asanti) | ✅ Released |
+| **Simba-TTS-twi-asanti** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-twi-asanti](https://huggingface.co/UBC-NLP/Simba-TTS-twi-asanti) | ✅ Released |
 | **Simba-TTS-twi-akuapem** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-twi-akuapem](https://huggingface.co/UBC-NLP/Simba-TTS-twi-akuapem) | ✅ Released |
 | **Simba-TTS-lin** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-lin](https://huggingface.co/UBC-NLP/Simba-TTS-lin) | ✅ Released |
 | **Simba-TTS-sot** 🔊 | MMS-TTS |  🤗 [https://huggingface.co/UBC-NLP/Simba-TTS-sot](https://huggingface.co/UBC-NLP/Simba-TTS-sot) | ✅ Released |
