@@ -140,7 +140,7 @@ You can easily run inference using the Hugging Face `transformers` library.
 from transformers import VitsModel, AutoTokenizer
 import torch
 
-model_name=f"UBC-NLP/Simba-TTS-afr"
+model_name="Simba-TTS-afr" ## Simba-TTS-twi-asanti, Simba-TTS-twi-akuapem, Simba-TTS-lin, Simba-TTS-sot, Simba-TTS-tsn, Simba-TTS-xho
 model = VitsModel.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
