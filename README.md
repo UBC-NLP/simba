@@ -139,8 +139,8 @@ You can easily run inference using the Hugging Face `transformers` library.
 ```python
 from transformers import VitsModel, AutoTokenizer
 import torch
-lang="afr"
-model_name=f"UBC-NLP-C/mms-tts-{lang}"
+
+model_name=f"UBC-NLP/Simba-TTS-afr"
 model = VitsModel.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
