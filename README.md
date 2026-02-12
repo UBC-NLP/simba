@@ -217,7 +217,7 @@ data['test'][0]
 
 ```
 
-## 📌 ASR Evaluation Configurations
+### 📌 ASR Evaluation Configurations
 
 | Config Name | Language | ISO | # Samples | # Hours |
 |-------------|----------|-----|----------|--------|
@@ -282,7 +282,7 @@ data['test'][0]
 | tts_test_Akuapim-twi | Akuapim-twi    | Akuapim-twi | 83       | 0.22   |
 
 
-## 📌 SLID Evaluation
+### 📌 SLID Evaluation
 
 | Config Name   | Language Scope | # Samples | # Hours |
 |--------------|---------------|----------|--------|
