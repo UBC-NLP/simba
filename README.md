@@ -11,9 +11,39 @@
 
 </div>
 
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [Best-in-Class Multilingual Models](#best-in-class-multilingual-models)
+  - [🗣️✍️ Simba-ASR (Automatic Speech Recognition)](#️-simba-asr)
+    - [Language Coverage](#language-coverage)
+    - [Available Models](#available-models)
+    - [Usage Example](#usage-example)
+    - [Example Outputs](#example-outputs)
+  - [🔊 Simba-TTS (Text-to-Speech)](#-simba-tts-text-to-speech)
+    - [Language Coverage](#language-coverage-1)
+    - [Available Models](#available-models-1)
+    - [Usage Example](#usage-example-1)
+  - [🔍 Simba-SLID (Spoken Language Identification)](#-simba-slid-spoken-language-identification)
+    - [Language Coverage](#language-coverage-2)
+    - [Available Models](#available-models-2)
+    - [Usage Example](#usage-example-2)
+- [SimbaBench Data Release & Benchmarking](#simbabench-data-release--benchmarking)
+  - [How to Use SimbaBench](#how-to-use-simbabench)
+  - [📌 ASR Evaluation Configurations](#-asr-evaluation-configurations)
+  - [📌 TTS Evaluation Configurations](#-tts-evaluation-configurations)
+  - [📌 SLID Evaluation](#-slid-evaluation)
+- [Citation](#citation)
+
+
+
+---
+
 ## *Bridging the Digital Divide for African AI*
 
 **Voice of a Continent** is a comprehensive open-source ecosystem designed to bring African languages to the forefront of artificial intelligence. By providing a unified suite of benchmarking tools and state-of-the-art models, we ensure that the future of speech technology is inclusive, representative, and accessible to over a billion people.
+
+--- 
 
 ## Best-in-Class Multilingual Models
 
@@ -226,6 +256,7 @@ pred_labels = [model.config.id2label[i] for i in pred_ids]
 print(pred_labels, confidence_values)
 ```
 
+---
 ## SibmaBench Data Release & Benchmarking
 
 To evaluate your model on **SimbaBench** across all supported tasks (ASR, TTS, and SLID), simply load the corresponding configuration for the task and language you wish to benchmark.
