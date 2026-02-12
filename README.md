@@ -5,7 +5,9 @@
 [![EMNLP 2025 Paper](https://img.shields.io/badge/EMNLP_2025-Paper-B31B1B?style=for-the-badge&logo=arxiv&logoColor=B31B1B&labelColor=FFCDD2)](https://aclanthology.org/2025.emnlp-main.559/)
 [![Official Website](https://img.shields.io/badge/Official-Website-2EA44F?style=for-the-badge&logo=googlechrome&logoColor=2EA44F&labelColor=C8E6C9)](https://africa.dlnlp.ai/simba/)
 [![SimbaBench](https://img.shields.io/badge/SimbaBench-Benchmark-8A2BE2?style=for-the-badge&logo=googlecharts&logoColor=8A2BE2&labelColor=E1BEE7)](https://huggingface.co/spaces/UBC-NLP/SimbaBench)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-FFD21E?style=for-the-badge&logoColor=black&labelColor=FFF9C4)](https://huggingface.co/collections/UBC-NLP/simba-speech-series)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=181717&labelColor=E0E0E0)](https://github.com/UBC-NLP/simba)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-FFD21E?style=for-the-badge&logoColor=181717&labelColor=FFF9C4)](https://huggingface.co/collections/UBC-NLP/simba-speech-series)
+[![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E?style=for-the-badge&logoColor=181717&labelColor=FFF9C4)](https://huggingface.co/datasets/UBC-NLP/SimbaBench_dataset)
 
 </div>
 
@@ -175,6 +177,116 @@ Audio(output.numpy(), rate=model.config.sampling_rate)
 | :--- | :--- | :---: | :---: |
 | **Simba-SLID** 🔍 | AfriHuBERT | — | 🛠️ In Progress |
 
+
+## SibmaBench Data Release & Benchmarking
+
+To evaluate your model on **SimbaBench** across all supported tasks (ASR, TTS, and SLID), simply load the corresponding configuration for the task and language you wish to benchmark.
+
+Each task is organized by configuration name (e.g., `asr_test_afr`, `tts_test_wol`, `slid_61_test`). Loading a configuration provides the standardized evaluation split for that specific benchmark.
+
+Example:
+
+```python
+from datasets import load_dataset
+
+data = load_dataset("UBC-NLP/SimbaBench_dataset", "asr_test_afr")
+```
+```
+DatasetDict({
+    test: Dataset({
+        features: ['split', 'benchmark_id', 'audio', 'text', 'duration_s', 'lang_iso3', 'lang_name'],
+        num_rows: 1000
+    })
+})
+
+```
+``` python
+data['test'][0]
+```
+```
+{'split': 'test',
+ 'benchmark_id': 'afr_Lwazi_afr_test_idx3889',
+ 'audio': {'path': None,
+  'array': array([ 4.27246094e-04,  7.62939453e-04,  6.71386719e-04, ...,
+         -3.05175781e-04, -2.13623047e-04, -6.10351562e-05]),
+  'sampling_rate': 16000},
+ 'text': 'watter, verontwaardiging sou daar, in ons binneste gewees het?',
+ 'duration_s': 5.119999885559082,
+ 'lang_iso3': 'afr',
+ 'lang_name': 'Afrikaans'}
+
+```
+
+## 📌 ASR Evaluation Configurations
+
+| Config Name | Language | ISO | # Samples | # Hours |
+|-------------|----------|-----|----------|--------|
+| asr_test_Akuapim-twi | Akuapim-twi | Akuapim-twi | 1,000 | 1.35 |
+| asr_test_Asante-twi | Asante-twi | Asante-twi | 1,000 | 0.97 |
+| asr_test_afr | Afrikaans | afr | 1,000 | 0.87 |
+| asr_test_amh | Amharic | amh | 581 | 1.12 |
+| asr_test_bas | Basaa | bas | 582 | 0.76 |
+| asr_test_bem | Bemba | bem | 1,000 | 2.15 |
+| asr_test_dav | Taita | dav | 878 | 1.17 |
+| asr_test_dyu | Dyula | dyu | 59 | 0.10 |
+| asr_test_fat | Fanti | fat | 1,000 | 1.38 |
+| asr_test_fon | Fon | fon | 1,000 | 0.66 |
+| asr_test_fuc | Pulaar | fuc | 100 | 0.10 |
+| asr_test_fuf | Pular | fuf | 129 | 0.03 |
+| asr_test_gaa | Ga | gaa | 1,000 | 1.52 |
+| asr_test_hau | Hausa | hau | 681 | 0.89 |
+| asr_test_ibo | Igbo | ibo | 5 | 0.01 |
+| asr_test_kab | Kabyle | kab | 1,000 | 1.05 |
+| asr_test_kin | Kinyarwanda | kin | 1,000 | 1.50 |
+| asr_test_kln | Kalenjin | kln | 1,000 | 1.50 |
+| asr_test_loz | Lozi | loz | 399 | 0.91 |
+| asr_test_lug | Ganda | lug | 1,000 | 1.65 |
+| asr_test_luo | Luo (Kenya and Tanzania) | luo | 1,000 | 1.31 |
+| asr_test_mlq | Western Maninkakan | mlq | 182 | 0.04 |
+| asr_test_nbl | South Ndebele | nbl | 1,000 | 1.12 |
+| asr_test_nso | Northern Sotho | nso | 1,000 | 0.88 |
+| asr_test_nya | Nyanja | nya | 428 | 1.31 |
+| asr_test_sot | Southern Sotho | sot | 1,000 | 0.82 |
+| asr_test_srr | Serer | srr | 899 | 2.84 |
+| asr_test_ssw | Swati | ssw | 1,000 | 0.93 |
+| asr_test_sus | Susu | sus | 210 | 0.05 |
+| asr_test_swa | Swahili | swa | 1,000 | 1.23 |
+| asr_test_tig | Tigre | tig | 185 | 0.33 |
+| asr_test_tir | Tigrinya | tir | 7 | 0.01 |
+| asr_test_toi | Tonga (Zambia) | toi | 463 | 1.47 |
+| asr_test_tsn | Tswana | tsn | 1,000 | 0.82 |
+| asr_test_tso | Tsonga | tso | 1,000 | 0.99 |
+| asr_test_twi | Twi | twi | 12 | 0.02 |
+| asr_test_ven | Venda | ven | 1,000 | 0.92 |
+| asr_test_wol | Wolof | wol | 1,000 | 1.19 |
+| asr_test_xho | Xhosa | xho | 1,000 | 0.92 |
+| asr_test_yor | Yoruba | yor | 359 | 0.42 |
+| asr_test_zgh | Standard Moroccan Tamazight | zgh | 197 | 0.22 |
+| asr_test_zul | Zulu | zul | 1,000 | 1.10 |
+
+## 📌 TTS Evaluation Configurations
+
+| Config Name           | Language        | ISO          | # Samples | # Hours |
+|----------------------|----------------|-------------|----------|--------|
+| tts_test_ewe         | Ewe            | ewe         | 66       | 0.29   |
+| tts_test_kin         | Kinyarwanda    | kin         | 1,053    | 1.30   |
+| tts_test_Asante-twi  | Asante-twi     | Asante-twi  | 64       | 0.18   |
+| tts_test_yor         | Yoruba         | yor         | 40       | 0.13   |
+| tts_test_wol         | Wolof          | wol         | 4,001    | 4.12   |
+| tts_test_hau         | Hausa          | hau         | 124      | 0.24   |
+| tts_test_lin         | Lingala        | lin         | 63       | 0.28   |
+| tts_test_xho         | Xhosa          | xho         | 242      | 0.31   |
+| tts_test_tsn         | Tswana         | tsn         | 238      | 0.36   |
+| tts_test_afr         | Afrikaans      | afr         | 293      | 0.34   |
+| tts_test_sot         | Southern Sotho | sot         | 210      | 0.33   |
+| tts_test_Akuapim-twi | Akuapim-twi    | Akuapim-twi | 83       | 0.22   |
+
+
+## 📌 SLID Evaluation
+
+| Config Name   | Language Scope | # Samples | # Hours |
+|--------------|---------------|----------|--------|
+| slid_61_test | 61 Languages  | 21,817       | 34.36 |
 
 
 ## Citation
