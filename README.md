@@ -36,13 +36,6 @@ The **Simba** family consists of state-of-the-art models fine-tuned using SimbaB
 **🌍 Language Coverage (43 African languages)**
 >  **Amharic** (`amh`), **Arabic** (`ara`), **Asante Twi** (`asanti`), **Bambara** (`bam`), **Baoulé** (`bau`), **Bemba** (`bem`), **Ewe** (`ewe`), **Fanti** (`fat`), **Fon** (`fon`), **French** (`fra`), **Ganda** (`lug`), **Hausa** (`hau`), **Igbo** (`ibo`), **Kabiye** (`kab`), **Kinyarwanda** (`kin`), **Kongo** (`kon`), **Lingala** (`lin`), **Luba-Katanga** (`lub`), **Luo** (`luo`), **Malagasy** (`mlg`), **Mossi** (`mos`), **Northern Sotho** (`nso`), **Nyanja** (`nya`), **Oromo** (`orm`), **Portuguese** (`por`), **Shona** (`sna`), **Somali** (`som`), **Southern Sotho** (`sot`), **Swahili** (`swa`), **Swati** (`ssw`), **Tigrinya** (`tir`), **Tsonga** (`tso`), **Tswana** (`tsn`), **Twi** (`twi`), **Umbundu** (`umb`), **Venda** (`ven`), **Wolof** (`wol`), **Xhosa** (`xho`), **Yoruba** (`yor`), **Zulu** (`zul`), **Tamazight** (`tzm`), **Sango** (`sag`), **Dinka** (`din`).
 
-**🏗️ Base Architectures**
-
-  -  **Simba-S** (SeamlessM4T-v2-MT) — *Top Performer*
-  - **Simba-W** (Whisper-v3-large)
-  - **Simba-X** (Wav2Vec2-XLS-R-2b)
-  - **Simba-M** (MMS-1b-all)
-  - **Simba-H** (AfriHuBERT)
       
 🌐 Explore the Frontier
 
