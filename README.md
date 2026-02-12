@@ -170,13 +170,68 @@ Audio(output.numpy(), rate=model.config.sampling_rate)
 
 ### 🔍 Simba-SLID (Spoken Language Identification)
 * **🎯 Task:** `Spoken Language Identification` — Intelligent input routing.
-**🌍 Language Coverage (32 African languages)**
-> **Afrikaans** (`afr`), **Amharic** (`amh`), **Arabic** (`ara`), **Asante Twi** (`asanti`), **Bambara** (`bam`), **Baoulé** (`bau`), **Bemba** (`bem`), **Dinka** (`din`), **Ewe** (`ewe`), **Fanti** (`fat`), **Fon** (`fon`), **French** (`fra`), **Ganda** (`lug`), **Hausa** (`hau`), **Igbo** (`ibo`), **Kabiye** (`kab`), **Kinyarwanda** (`kin`), **Kongo** (`kon`), **Lingala** (`lin`), **Luba-Katanga** (`lub`), **Luo** (`luo`), **Malagasy** (`mlg`), **Mossi** (`mos`), **Northern Sotho** (`nso`), **Nyanja** (`nya`), **Oromo** (`orm`), **Portuguese** (`por`), **Sango** (`sag`), **Shona** (`sna`), **Somali** (`som`), **Southern Sotho** (`sot`), **Swahili** (`swa`), **Swati** (`ssw`), **Tamazight** (`tzm`), **Tigrinya** (`tir`), **Tsonga** (`tso`), **Tswana** (`tsn`), **Twi** (`twi`), **Umbundu** (`umb`), **Venda** (`ven`), **Wolof** (`wol`), **Xhosa** (`xho`), **Yoruba** (`yor`), **Zulu** (`zul`)
+* **🌍 Language Coverage (49 African languages)**
+  > **Akuapim Twi** (`Akuapim-twi`), **Asante Twi** (`Asante-twi`), **Tunisian Arabic** (`aeb`), **Afrikaans** (`afr`), **Amharic** (`amh`), **Arabic** (`ara`), **Basaa** (`bas`), **Bemba** (`bem`), **Taita** (`dav`), **Dyula** (`dyu`), **English** (`eng`), **Nigerian Pidgin** (`eng-zul`), **Ewe** (`ewe`), **Fanti** (`fat`), **Fon** (`fon`), **Pulaar** (`fuc`), **Pular** (`fuf`), **Ga** (`gaa`), **Hausa** (`hau`), **Igbo** (`ibo`), **Kabyle** (`kab`), **Kinyarwanda** (`kin`), **Kalenjin** (`kln`), **Lingala** (`lin`), **Lozi** (`loz`), **Luganda** (`lug`), **Luo** (`luo`), **Western Maninkakan** (`mlq`), **South Ndebele** (`nbl`), **Northern Sotho** (`nso`), **Chichewa** (`nya`), **Southern Sotho** (`sot`), **Serer** (`srr`), **Swati** (`ssw`), **Susu** (`sus`), **Kiswahili** (`swa`), **Swahili** (`swh`), **Tigre** (`tig`), **Tigrinya** (`tir`), **Tonga** (`toi`), **Tswana** (`tsn`), **Tsonga** (`tso`), **Twi** (`twi`), **Venda** (`ven`), **Wolof** (`wol`), **Xhosa** (`xho`), **Yoruba** (`yor`), **Standard Moroccan Tamazight** (`zgh`), **Zulu** (`zul`)
 
 | **SLID Model** | **Architecture** | **Hugging Face Card** | **Status** |
 | :--- | :--- | :---: | :---: |
-| **Simba-SLID** 🔍 | AfriHuBERT | — | 🛠️ In Progress |
+| **Simba-SLID** 🔍 | HuBERT | 🤗 [https://huggingface.co/UBC-NLP/Simba-SLIS_49](https://huggingface.co/UBC-NLPSimba-SLIS_49) | ✅ Released |
 
+
+**🧩 Usage Example**
+
+You can easily run inference using the Hugging Face `transformers` library.
+
+```python
+from transformers import (
+    HubertForSequenceClassification,
+    AutoFeatureExtractor,
+    AutoProcessor
+)
+import torch
+
+model_id = "UBC-NLP/Simba-SLIS_49"
+model = HubertForSequenceClassification.from_pretrained(model_id).to("cuda")
+# HuBERT models can use either processor or feature extractor depending on the specific model
+try:
+    processor = AutoProcessor.from_pretrained(model_id)
+    print("Loaded Simba-SLIS_49 model with AutoProcessor")
+except:
+    processor = AutoFeatureExtractor.from_pretrained(model_id)
+    print("Loaded Simba-SLIS_49 model with AutoFeatureExtractor")
+
+# Optimize model for inference
+model.eval()
+audio_arrays = [] ### add your audio array
+sample_rate=16000
+
+nputs = processor(audio_arrays, sampling_rate=sample_rate, return_tensors="pt", padding=True).to("cuda")
+    
+# Different models might have slightly different input formats
+try:
+    logits = model(**inputs).logits
+except Exception as e:
+    # Try alternative input format if the first attempt fails
+    if "input_values" in inputs:
+        logits = model(input_values=inputs.input_values).logits
+    else:
+        raise e
+
+# Calculate softmax probabilities
+probs = torch.nn.functional.softmax(logits, dim=-1)
+
+# Get the maximum probability (confidence) for each prediction
+confidence_values, pred_ids = torch.max(probs, dim=-1)
+
+# Convert to Python lists
+pred_ids = pred_ids.tolist()
+confidence_values = confidence_values.cpu().tolist()
+# Get labels from IDs
+pred_labels = [model.config.id2label[i] for i in pred_ids]
+
+
+print(pred_labels, confidence_values)
+```
 
 ## SibmaBench Data Release & Benchmarking
 
