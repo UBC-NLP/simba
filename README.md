@@ -13,7 +13,6 @@
 
 ## 📑 Table of Contents
 
-- [Overview](#overview)
 - [Best-in-Class Multilingual Models](#best-in-class-multilingual-models)
   - [🗣️✍️ Simba-ASR (Automatic Speech Recognition)](#️-simba-asr)
   - [🔊 Simba-TTS (Text-to-Speech)](#-simba-tts-text-to-speech)
