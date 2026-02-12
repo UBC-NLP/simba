@@ -175,7 +175,7 @@ Audio(output.numpy(), rate=model.config.sampling_rate)
 
 | **SLID Model** | **Architecture** | **Hugging Face Card** | **Status** |
 | :--- | :--- | :---: | :---: |
-| **Simba-SLID** 🔍 | HuBERT | 🤗 [https://huggingface.co/UBC-NLP/Simba-SLIS_49](https://huggingface.co/UBC-NLPSimba-SLIS_49) | ✅ Released |
+| **Simba-SLID-49** 🔍 | HuBERT | 🤗 [https://huggingface.co/UBC-NLP/Simba-SLIS-49](https://huggingface.co/UBC-NLPSimba-SLIS-49) | ✅ Released |
 
 
 **🧩 Usage Example**
